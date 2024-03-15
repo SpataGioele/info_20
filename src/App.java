@@ -43,9 +43,20 @@ public class App {
     }
 
     public static void getLibroInputs(Scanner input) {
-        System.out.println("Inserisci l'isbn:");
+        System.out.println("Inserisci l'isbn: ");
         String isbn = input.nextLine();
+        System.out.println("Inserisci il titolo: ");
+        String titolo = input.nextLine();
+        System.out.println("Inserisci l'anno: ");
+        int anno = Integer.parseInt(input.nextLine());
+        System.out.println("Inserisci la casa editrice: ");
+        String editore = input.nextLine();
+        System.out.println("Inserisci il codice fiscale dell'autore: ");
+        String cf = input.nextLine();
+        System.out.println("Inserisci il nome dell'autore: ");
+        String nome = input.nextLine();
 
-        
+
+
     }
 }

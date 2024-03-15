@@ -4,9 +4,9 @@ public class LibroDigitale extends Libro {
     private String estensione;
 
     // costruttori
-    public LibroDigitale(String titolo, String isbn, int anno, String editore, double prezzoDiVendita,
-            double dimensione, String estensione) {
-        super(titolo, isbn, anno, editore, prezzoDiVendita);
+    public LibroDigitale(String titolo, String isbn, int anno, String editore, double prezzoDiVendita, String cf, String nome,
+     String cognome, double dimensione, String estensione) {
+        super(titolo, isbn, anno, editore, prezzoDiVendita, cf, nome, cognome);
         this.dimensione = dimensione;
         this.estensione = estensione;
     }

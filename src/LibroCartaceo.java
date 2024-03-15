@@ -6,8 +6,8 @@ public class LibroCartaceo extends Libro {
 
     // costruttori
     public LibroCartaceo(String titolo, String isbn, int anno, String editore, double prezzoDiVendita, Double peso,
-    boolean copertinaRigida, int qtaMagazzino) {
-        super(titolo, isbn, anno, editore, prezzoDiVendita);
+    boolean copertinaRigida, int qtaMagazzino, String cf, String nome, String cognome) {
+        super(titolo, isbn, anno, editore, prezzoDiVendita, cf, nome, cognome);
         this.peso = peso;
         this.copertinaRigida = copertinaRigida;
         this.qtaMagazzino = qtaMagazzino;

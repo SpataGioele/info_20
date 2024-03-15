@@ -8,13 +8,13 @@ public class Libro {
     private double prezzoDiVendita;
     
     // costruttori
-    public Libro(String titolo, String isbn, int anno, String editore, double prezzoDiVendita) {
+    public Libro(String titolo, String isbn, int anno, String editore, double prezzoDiVendita, String cf, String nome, String cognome) {
         this.titolo = titolo;
         this.isbn = isbn;
         this.anno = anno;
         this.editore = editore;
         this.prezzoDiVendita = prezzoDiVendita;
-        autore = new Autore(titolo, isbn, editore);
+        autore = new Autore(cf, nome, cognome);
     }
 
     // getters and setters
