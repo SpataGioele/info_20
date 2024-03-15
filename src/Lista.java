@@ -25,13 +25,13 @@ public class Lista {
         return head == null;
     }
 
-    public boolean isPresente(String isbn) {
+    public boolean isPresente(Libro l) {
         if (isEmpty()) 
             return false;
 
         for (Nodo tmp = head; tmp != null; tmp = tmp.getNext()) {
-            if (tmp.getInfo().getIsbn().equals(isbn)) {
-                if (tmp.getInfo() instanceof LibroCartaceo) 
+            if (tmp.getInfo().getIsbn().equals(l.getIsbn())) {
+                if (tmp.getInfo() instanceof LibroCartaceo && l instanceof LibroCartaceo) 
                     ((LibroCartaceo) tmp.getInfo()).setQtaMagazzino(((LibroCartaceo) tmp.getInfo()).getQtaMagazzino() + 1);
      
                 return true;
@@ -61,7 +61,7 @@ public class Lista {
     }
 
     public boolean addLibro(Libro l) {
-        if (isPresente(l.getIsbn())) return false;
+        if (isPresente(l)) return false;
     
         Nodo tmp = new Nodo(l);
         Nodo pos = findPos(l);
