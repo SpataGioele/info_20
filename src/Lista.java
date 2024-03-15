@@ -51,13 +51,11 @@ public class Lista {
         Nodo tmp = head;
         String title = l.getTitolo();
     
-        if (tmp == null || title.compareTo(tmp.getInfo().getTitolo()) < 0) {
+        if (tmp == null || title.compareTo(tmp.getInfo().getTitolo()) < 0) 
             return null;
-        }
     
-        while (tmp.getNext() != null && title.compareTo(tmp.getNext().getInfo().getTitolo()) > 0) {
+        while (tmp.getNext() != null && title.compareTo(tmp.getNext().getInfo().getTitolo()) > 0) 
             tmp = tmp.getNext();
-        }
     
         return tmp;
     }

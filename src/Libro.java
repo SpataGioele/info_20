@@ -69,7 +69,12 @@ public class Libro {
     // metodi
     @Override
     public String toString() {
-        return "Libro [titolo=" + titolo + ", isbn=" + isbn + ", anno=" + anno + ", editore=" + editore + ", autore="
-                + autore + ", prezzoDiVendita=" + prezzoDiVendita + "]";
+        return 
+            "[ titolo: " + getTitolo() +
+            ", isbn: " + getIsbn() + 
+            ", anno: " + getAnno() + 
+            ", editore: " + getEditore() + 
+            ", autore: "+ getAutore() + 
+            ", prezzoDiVendita: " + getPrezzoDiVendita();
     }
 }

@@ -41,6 +41,11 @@ public class LibroCartaceo extends Libro {
     // metodi
     @Override
     public String toString() {
-        return super.toString() + ", peso: " + getPeso() + ", quota in magazzino: " + getQtaMagazzino();
+        return 
+            "Libro cartaceo " +
+            super.toString() + 
+            ", peso: " + getPeso() + 
+            ", quota in magazzino: " + getQtaMagazzino() + 
+            " ]";
     }
 }
