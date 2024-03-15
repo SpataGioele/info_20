@@ -41,31 +41,41 @@ public class Lista {
         return false;
     }
 
-    public Nodo findPos(Libro l) {
-        if (head == null || head.getInfo().getTitolo().compareTo(l.getTitolo()) > 0) {
-            return head;
-        }
+    public Nodo findLast() {
+        Nodo tmp;
+        for (tmp = head; tmp.getNext() != null; tmp = tmp.getNext());
+        return tmp;        
+    }
 
-        for (Nodo tmp = head; tmp.getNext() != null; tmp = tmp.getNext()) 
-            if (tmp.getNext().getInfo().getTitolo().compareTo(l.getTitolo()) > 0) 
-                return tmp;
-            
-        return null;
+    public Nodo findPos(Libro l) {
+        Nodo tmp = head;
+        String title = l.getTitolo();
+    
+        if (tmp == null || title.compareTo(tmp.getInfo().getTitolo()) < 0) {
+            return null;
+        }
+    
+        while (tmp.getNext() != null && title.compareTo(tmp.getNext().getInfo().getTitolo()) > 0) {
+            tmp = tmp.getNext();
+        }
+    
+        return tmp;
     }
 
     public boolean addLibro(Libro l) {
-        if (isPresente(l.getIsbn()))
-            return false;
-            
-        Nodo tmp = new Nodo(l);    
-        if (isEmpty() || head.getInfo().getTitolo().compareTo(l.getTitolo()) > 0) {
+        if (isPresente(l.getIsbn())) return false;
+    
+        Nodo tmp = new Nodo(l);
+        Nodo pos = findPos(l);
+    
+        if (pos == null) {
             tmp.setNext(head);
             head = tmp;
         } else {
-            tmp.setNext(findPos(l).getNext());
-            findPos(l).setNext(tmp);
+            tmp.setNext(pos.getNext());
+            pos.setNext(tmp);
         }
-        
+    
         return true;
     }
 }
