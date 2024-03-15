@@ -29,5 +29,8 @@ public class LibroDigitale extends Libro {
     }
 
     // metodi
-    
+    @Override
+    public String toString() {
+        return super.toString() + ", dimensione: " + getDimensione() + ", estensione: " + getEstensione();
+    }
 }

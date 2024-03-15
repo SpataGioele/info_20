@@ -39,5 +39,8 @@ public class LibroCartaceo extends Libro {
     }
 
     // metodi
-    
+    @Override
+    public String toString() {
+        return super.toString() + ", peso: " + getPeso() + ", quota in magazzino: " + getQtaMagazzino();
+    }
 }

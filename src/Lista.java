@@ -41,9 +41,13 @@ public class Lista {
         return false;
     }
 
-    public Nodo findPos(String titolo) {
+    public Nodo findPos(Libro l) {
+        if (head == null || head.getInfo().getTitolo().compareTo(l.getTitolo()) > 0) {
+            return head;
+        }
+
         for (Nodo tmp = head; tmp.getNext() != null; tmp = tmp.getNext()) 
-            if (tmp.getNext().getInfo().getTitolo().compareTo(titolo) > 0) 
+            if (tmp.getNext().getInfo().getTitolo().compareTo(l.getTitolo()) > 0) 
                 return tmp;
             
         return null;
@@ -52,13 +56,14 @@ public class Lista {
     public boolean addLibro(Libro l) {
         if (isPresente(l.getIsbn()))
             return false;
-
-        Nodo tmp = new Nodo(l);
-        if (isEmpty()) {
+            
+        Nodo tmp = new Nodo(l);    
+        if (isEmpty() || head.getInfo().getTitolo().compareTo(l.getTitolo()) > 0) {
+            tmp.setNext(head);
             head = tmp;
         } else {
-            tmp.setNext(findPos(l.getTitolo()).getNext());
-            findPos(l.getTitolo()).setNext(tmp);
+            tmp.setNext(findPos(l).getNext());
+            findPos(l).setNext(tmp);
         }
         
         return true;

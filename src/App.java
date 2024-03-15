@@ -23,7 +23,7 @@ public class App {
                     libreria.showInfo();
                     break;
                 case 2:
-                    
+                    libreria.addLibro(getLibroInputs(input));
                     break;
                 default:
                     System.out.println("\nOpzione non valida. Riprova.");
@@ -42,7 +42,13 @@ public class App {
         System.out.println("0) Esci");
     }
 
-    public static void getLibroInputs(Scanner input) {
+    public static Libro getLibroInputs(Scanner input) {
+        boolean cartaceo = false;
+        System.out.println("\nIl libro è cartaceo? [Y/n]");
+
+        if (input.nextLine().toLowerCase().equals("y"))
+            cartaceo = true;
+
         System.out.println("Inserisci l'isbn: ");
         String isbn = input.nextLine();
         System.out.println("Inserisci il titolo: ");
@@ -55,8 +61,27 @@ public class App {
         String cf = input.nextLine();
         System.out.println("Inserisci il nome dell'autore: ");
         String nome = input.nextLine();
+        System.out.println("Inserisci il cognome dell'autore: ");
+        String cognome = input.nextLine();
+        System.out.println("Inserisci il prezzo di vendita: ");
+        double prezzoDiVendita =  Double.parseDouble(input.nextLine());
 
+        if (cartaceo) {
+            System.out.println("Inserisci il peso del file: ");
+            double peso = Double.parseDouble(input.nextLine());
 
+            boolean copertinaRigida = false;
+            System.out.println("Il libro ha una copertina rigida? [Y/n]");
+            if (input.nextLine().toLowerCase().equals("y"))
+                copertinaRigida = true;
 
+            return new LibroCartaceo(titolo, isbn, anno, editore, prezzoDiVendita, peso, copertinaRigida, 1, cf, nome, cognome);
+        } 
+
+        System.out.println("Inserisci la dimensione del file: ");
+        double dimensione =  Double.parseDouble(input.nextLine());
+        System.out.println("Inserisci l'estensione del file: ");
+        String estensione = input.nextLine();
+        return new LibroDigitale(titolo, isbn, anno, editore, prezzoDiVendita, cf, nome, cognome, dimensione, estensione);
     }
 }
