@@ -90,7 +90,6 @@ public class LibreriaOnline {
         while (!temp.isEmpty()) {
             Nodo nodoMin = temp.getHead();
             Nodo prevMin = null;
-            Nodo curr = temp.getHead();
             for (Nodo tmp = temp.getHead(); tmp.getNext() != null; tmp = tmp.getNext()) {
                 if (crescente) {
                     if (tmp.getNext().getInfo().getTitolo().compareTo(nodoMin.getInfo().getTitolo()) < 0) {

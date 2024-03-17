@@ -86,7 +86,8 @@ public class App {
         System.out.println("2) Inserisci libro");   // ordinata
         System.out.println("3) Trova prezzo di un libro tramite isbn");   
         System.out.println("4) Trova titolo di un libro tramite isbn");   
-        System.out.println("5) Trova il libro col prezzo più alto");   
+        System.out.println("5) Trova il libro col prezzo più alto"); 
+        System.out.println("6) Mostra lista ordinata per titolo");   
         System.out.println("0) Esci");
     }
 
