@@ -76,4 +76,23 @@ public class Lista {
     
         return true;
     }
+
+    public Lista deepCopy() {
+        Lista nuovaLista = new Lista();
+        
+        if (head == null) 
+            return nuovaLista; 
+        
+        nuovaLista.head = new Nodo(head.getInfo());
+        Nodo nuovoNodo = nuovaLista.head;
+        Nodo nodoOriginale = head.getNext();
+        
+        while (nodoOriginale != null) {
+            nuovoNodo.setNext(new Nodo(nodoOriginale.getInfo()));
+            nuovoNodo = nuovoNodo.getNext();
+            nodoOriginale = nodoOriginale.getNext();
+        }
+        
+        return nuovaLista;
+    }
 }

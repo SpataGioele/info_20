@@ -6,7 +6,12 @@ public class App {
         Scanner input = new Scanner(System.in);
 
         // creo libreria
-        Lista libreria = new Lista();
+        LibreriaOnline libreria = new LibreriaOnline("Feltrinelli");
+
+        // working variable
+        String isbn = null;
+        String titolo = null;
+        double prezzo = -1;
 
         int scelta = -1;
         do {
@@ -25,6 +30,46 @@ public class App {
                 case 2:
                     libreria.addLibro(getLibroInputs(input));
                     break;
+                case 3:
+                    System.out.println("\nInserisci l´ISBN del libro");
+                    isbn = input.nextLine();
+
+                    prezzo = libreria.findPrezzoByIsbn(isbn);
+
+                    if (prezzo != -1)
+                        System.out.println("Il prezzo del libro è: " + prezzo);
+                    else
+                        System.out.println("\nISBN invalido");
+                    break;
+                case 4:
+                    System.out.println("\nInserisci l´ISBN del libro");
+                    isbn = input.nextLine();
+
+                    titolo = libreria.findTitoloByIsbn(isbn);
+
+                    if (titolo != null)
+                        System.out.println("Il titolo del libro è: " + titolo);
+                    else
+                        System.out.println("\nISBN invalido");
+                    break;
+                case 5:
+                    Libro l = libreria.findLibroHighestPrezzo();
+
+                    if (l != null)
+                        System.out.println(l.toString());
+                    else
+                        System.out.println("\nISBN invalido");
+                    break;
+                case 6:
+                    System.out.println("Vuoi ordinare in modo crescente? [Y/n]");
+                    boolean crescente = false;
+
+                    if (input.nextLine().toLowerCase().equals("y"))
+                        crescente = true;
+
+                    Lista lista = libreria.libriSortedByTitolo(crescente);
+                    lista.showInfo();
+                    break;
                 default:
                     System.out.println("\nOpzione non valida. Riprova.");
                     break;
@@ -39,6 +84,9 @@ public class App {
         System.out.println("\n- - MENU - -");
         System.out.println("1) Mostra libreria"); 
         System.out.println("2) Inserisci libro");   // ordinata
+        System.out.println("3) Trova prezzo di un libro tramite isbn");   
+        System.out.println("4) Trova titolo di un libro tramite isbn");   
+        System.out.println("5) Trova il libro col prezzo più alto");   
         System.out.println("0) Esci");
     }
 

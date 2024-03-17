@@ -1,4 +1,4 @@
-public class Libro {
+public class Libro implements Cloneable {
     // attributi
     private String titolo;
     private String isbn;
@@ -76,5 +76,13 @@ public class Libro {
             ", editore: " + getEditore() + 
             ", autore: "+ getAutore() + 
             ", prezzoDiVendita: " + getPrezzoDiVendita();
+    }
+
+    public Libro clone() {
+        try {
+            return (Libro) super.clone();
+        } catch (Exception e) {
+            throw new InternalError();
+        }
     }
 }

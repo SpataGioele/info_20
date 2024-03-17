@@ -1,6 +1,6 @@
 
 
-public class Autore {
+public class Autore implements Cloneable {
     // attributi
     private String codiceFiscale;
     private String nome;
@@ -39,5 +39,12 @@ public class Autore {
     }
 
     // metodi
-
-}
+    @Override 
+    public Autore clone() {
+        try {
+            return (Autore) super.clone();
+        } catch (Exception e) {
+            throw new InternalError();
+        }
+    }
+}   
